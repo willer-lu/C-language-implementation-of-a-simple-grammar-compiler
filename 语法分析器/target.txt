@@ -1,0 +1,40 @@
+DSEG    SEGMENT  
+a       DW 0
+b       DW 0
+c       DW 0
+d       DW 0
+t4      DW 0
+t3      DW 0
+t2      DW 0
+t1      DW 0
+string  DB 'PLEASE INPUT:','$'
+int     DW 1000 DUP(0)
+float   DD 1000 DUP(0)
+bool    DB 1000 DUP(0)
+char    DB 1000 DUP(0)
+DSEG    ENDS
+SSEG    SEGMENT STACK
+SSEG    ENDS
+CSEG    SEGMENT
+        ASSUME  CS:CSEG,DS:DSEG
+        ASSUME  SS:SSEG
+main:
+        MOV AX,DSEG
+        MOV DS,AX
+        MOV AX,SSEG
+        MOV SS,AX
+        MOV t4,000aH
+        MOV AX,t4
+        MOV a,AX
+        MOV t3,0008H
+        MOV AX,t3
+        MOV b,AX
+        MOV AX,b
+        ADD AX,a
+        MOV t2,AX
+        MOV AX,t2
+        MOV c,AX
+        MOV AX,t2
+        MOV d,AX
+CSEG    ENDS
+END     main

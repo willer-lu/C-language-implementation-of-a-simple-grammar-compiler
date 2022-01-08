@@ -1,0 +1,9 @@
+int  main()
+{
+   int a=9+1;
+   int b=2*4;
+   int c=a+b;
+   int d=a+b;
+
+
+}
